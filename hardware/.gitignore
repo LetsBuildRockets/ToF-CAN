@@ -1,0 +1,13 @@
+# EAGLE project files
+*.epf
+
+# temp/backup sch and brd files
+*.s#*
+*.b#*
+
+# EAGLE autorouter files
+*.job
+*.pro
+
+# Autodesk Inventor backups
+**/OldVersions/
