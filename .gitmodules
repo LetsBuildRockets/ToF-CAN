@@ -1,3 +1,9 @@
 [submodule "firmware/libs/arduino-mcp2515"]
 	path = firmware/libs/arduino-mcp2515
 	url = https://github.com/autowp/arduino-mcp2515
+[submodule "firmware/ToF-CAN-Firmware/libs/I2C-master-lib"]
+	path = firmware/ToF-CAN-Firmware/libs/I2C-master-lib
+	url = https://github.com/g4lvanix/I2C-master-lib
+[submodule "firmware/ToF-CAN-Firmware/libs/Adafruit_VL53L0X"]
+	path = firmware/ToF-CAN-Firmware/libs/Adafruit_VL53L0X
+	url = https://github.com/ericsims/Adafruit_VL53L0X
