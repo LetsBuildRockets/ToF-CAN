@@ -12115,6 +12115,11 @@ Source: 008-0260-0_E.pdf</description>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="FRAME_A_L" device=""/>
 <part name="FRAME2" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="FRAME_A_L" device=""/>
 <part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="120"/>
+<part name="Q2" library="crystal" library_urn="urn:adsk.eagle:library:204" deviceset="CRYSTAL" device="CTS406" package3d_urn="urn:adsk.eagle:package:12089/1" value="16MHz"/>
+<part name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/2" value="20pF"/>
+<part name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/2" value="20pF"/>
+<part name="GND17" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND18" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12237,12 +12242,12 @@ because its cool</text>
 <instance part="GND12" gate="1" x="238.76" y="68.58" smashed="yes">
 <attribute name="VALUE" x="236.22" y="66.04" size="1.778" layer="96"/>
 </instance>
-<instance part="C7" gate="G$1" x="48.26" y="124.46" smashed="yes">
-<attribute name="NAME" x="49.784" y="124.841" size="1.778" layer="95"/>
-<attribute name="VALUE" x="49.784" y="119.761" size="1.778" layer="96"/>
+<instance part="C7" gate="G$1" x="48.26" y="129.54" smashed="yes">
+<attribute name="NAME" x="49.784" y="129.921" size="1.778" layer="95"/>
+<attribute name="VALUE" x="49.784" y="124.841" size="1.778" layer="96"/>
 </instance>
-<instance part="GND15" gate="1" x="48.26" y="114.3" smashed="yes">
-<attribute name="VALUE" x="45.72" y="111.76" size="1.778" layer="96"/>
+<instance part="GND15" gate="1" x="48.26" y="121.92" smashed="yes">
+<attribute name="VALUE" x="45.72" y="119.38" size="1.778" layer="96"/>
 </instance>
 <instance part="T1" gate="A" x="142.24" y="187.96" smashed="yes" rot="R90">
 <attribute name="VALUE" x="142.24" y="190.5" size="1.778" layer="96" rot="R90"/>
@@ -12253,6 +12258,24 @@ because its cool</text>
 <attribute name="LAST_DATE_TIME" x="185.42" y="1.27" size="2.54" layer="94"/>
 <attribute name="SHEET" x="259.08" y="1.27" size="2.54" layer="94"/>
 <attribute name="DRAWING_NAME" x="185.42" y="19.05" size="2.54" layer="94"/>
+</instance>
+<instance part="Q2" gate="G$1" x="22.86" y="114.3" smashed="yes">
+<attribute name="NAME" x="25.4" y="115.316" size="1.778" layer="95"/>
+<attribute name="VALUE" x="25.4" y="111.76" size="1.778" layer="96"/>
+</instance>
+<instance part="C8" gate="G$1" x="12.7" y="104.14" smashed="yes">
+<attribute name="NAME" x="14.224" y="104.521" size="1.778" layer="95"/>
+<attribute name="VALUE" x="14.224" y="99.441" size="1.778" layer="96"/>
+</instance>
+<instance part="C9" gate="G$1" x="33.02" y="104.14" smashed="yes">
+<attribute name="NAME" x="34.544" y="104.521" size="1.778" layer="95"/>
+<attribute name="VALUE" x="34.544" y="99.441" size="1.778" layer="96"/>
+</instance>
+<instance part="GND17" gate="1" x="12.7" y="96.52" smashed="yes">
+<attribute name="VALUE" x="10.16" y="93.98" size="1.778" layer="96"/>
+</instance>
+<instance part="GND18" gate="1" x="33.02" y="96.52" smashed="yes">
+<attribute name="VALUE" x="30.48" y="93.98" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -12284,7 +12307,7 @@ because its cool</text>
 <wire x1="66.04" y1="132.08" x2="60.96" y2="132.08" width="0.1524" layer="91"/>
 <junction x="60.96" y="132.08"/>
 <pinref part="C7" gate="G$1" pin="1"/>
-<wire x1="48.26" y1="127" x2="48.26" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="132.08" x2="48.26" y2="134.62" width="0.1524" layer="91"/>
 <junction x="48.26" y="134.62"/>
 </segment>
 <segment>
@@ -12375,7 +12398,14 @@ because its cool</text>
 <segment>
 <pinref part="C7" gate="G$1" pin="2"/>
 <pinref part="GND15" gate="1" pin="GND"/>
-<wire x1="48.26" y1="116.84" x2="48.26" y2="119.38" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C8" gate="G$1" pin="2"/>
+<pinref part="GND17" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C9" gate="G$1" pin="2"/>
+<pinref part="GND18" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="INT0" class="0">
@@ -12610,6 +12640,29 @@ because its cool</text>
 <pinref part="PTC1" gate="G$1" pin="1"/>
 <wire x1="127" y1="187.96" x2="119.38" y2="187.96" width="0.1524" layer="91"/>
 <junction x="127" y="187.96"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="C8" gate="G$1" pin="1"/>
+<pinref part="Q2" gate="G$1" pin="1"/>
+<wire x1="20.32" y1="114.3" x2="12.7" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="114.3" x2="12.7" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="U1" gate="U$1" pin="PB7(XTAL2/TOSC2)"/>
+<wire x1="12.7" y1="109.22" x2="12.7" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="109.22" x2="12.7" y2="109.22" width="0.1524" layer="91"/>
+<junction x="12.7" y="109.22"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<wire x1="66.04" y1="114.3" x2="33.02" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="C9" gate="G$1" pin="1"/>
+<wire x1="33.02" y1="114.3" x2="33.02" y2="106.68" width="0.1524" layer="91"/>
+<junction x="33.02" y="114.3"/>
+<pinref part="Q2" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="114.3" x2="33.02" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="U1" gate="U$1" pin="PB6(XTAL1/TOSC1)"/>
 </segment>
 </net>
 </nets>
