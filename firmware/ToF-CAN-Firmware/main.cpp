@@ -31,8 +31,8 @@
 #include "libs/Adafruit_VL53L0X/src/Adafruit_VL53L0X.h"
 #include "libs/Adafruit_VL53L0X/src/Adafruit_VL53L0X.cpp" // <-- sue me. this actually decreases memory ussage, cause we don't get the whole staic library
 
-#define PIN_LED_B DDD5
-#define PIN_LED_G DDD6
+#define PIN_LED_B DDD6
+#define PIN_LED_G DDD5
 #define PIN_LED_R DDD7
 
 void init_uart(uint16_t baudrate) {
@@ -82,8 +82,8 @@ int main(void)
     while (1) 
     {
 		
-		tof.rangingTest(&measure, false); // pass in 'true' to get debug data printout!
-		if (measure.RangeStatus != 4) {  // phase failures have incorrect data
+		tof.rangingTest(&measure, false);
+		if (measure.RangeStatus != 4) {
 			uart_puts("Distance (mm): ");
 			itoa(measure.RangeMilliMeter, buffer, 10);
 			uart_puts(buffer);
