@@ -20,16 +20,24 @@
 #include <util/delay.h>
 #include <stdlib.h>
 #include <avr/pgmspace.h>
+#include <avr/interrupt.h>
 
 #define TWBR TWBR0
 #define TWCR TWCR0
 #define TWSR TWSR0
 #define TWDR TWDR0
 
+
+#define SPDR SPDR0
+#define SPCR SPCR0
+#define SPSR SPSR0
+
 #include "libs/I2C-master-lib/i2c_master.h"
 #include "libs/I2C-master-lib/i2c_master.c"
 #include "libs/Adafruit_VL53L0X/src/Adafruit_VL53L0X.h"
 #include "libs/Adafruit_VL53L0X/src/Adafruit_VL53L0X.cpp" // <-- sue me. this actually decreases memory ussage, cause we don't get the whole staic library
+#include "libs/mcp2515/mcp2515.h"
+#include "libs/mcp2515/mcp2515.c"
 
 #define PIN_LED_B DDD6
 #define PIN_LED_G DDD5
@@ -74,8 +82,17 @@ int main(void)
 	DDRD |= (1<<PIN_LED_R);
 	
 	init_uart(9600);
-	i2c_init();
+	_delay_us(200);
 	
+	//sei();
+	if (!mcp2515_init()) {
+		uart_puts("Fehler: kann den MCP2515 nicht ansprechen!\r\n");
+		for (;;);
+	}
+	else {
+		uart_puts("MCP2515 is aktiv\r\n");
+	}
+	i2c_init();
 	tof.begin();
    
    VL53L0X_RangingMeasurementData_t measure;

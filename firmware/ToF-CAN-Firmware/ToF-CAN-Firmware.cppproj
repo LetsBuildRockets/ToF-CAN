@@ -96,6 +96,7 @@
     <ListValues>
       <Value>libm</Value>
       <Value>libVL530L0X.a</Value>
+      <Value>libMCP2515.a</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.Libraries>
   <avrgcccpp.linker.libraries.LibrarySearchPaths>
@@ -103,6 +104,7 @@
       <Value>../libs/I2C-master-lib</Value>
       <Value>../libs/Adafruit_VL53L0X/src</Value>
       <Value>D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X</Value>
+      <Value>D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\mcp2515</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.LibrarySearchPaths>
   <avrgcccpp.assembler.general.IncludePaths>
@@ -162,6 +164,7 @@
     <ListValues>
       <Value>libm</Value>
       <Value>libVL530L0X.a</Value>
+      <Value>libMCP2515.a</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.Libraries>
   <avrgcccpp.linker.libraries.LibrarySearchPaths>
@@ -169,6 +172,7 @@
       <Value>D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\I2C-master-lib</Value>
       <Value>D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\src</Value>
       <Value>D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X</Value>
+      <Value>D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\mcp2515</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.LibrarySearchPaths>
   <avrgcccpp.assembler.general.IncludePaths>
