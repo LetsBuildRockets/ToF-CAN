@@ -43,6 +43,8 @@
 #define PIN_LED_G DDD5
 #define PIN_LED_R DDD7
 
+#define CAN_BUS_ADDR 0x620
+
 void init_uart(uint16_t baudrate) {
 
 	uint16_t UBRR_val = (F_CPU/16)/(baudrate-1);
@@ -67,8 +69,27 @@ void uart_puts(const char *s) {
 	}
 }
 
-void writeVL53L0X(uint8_t rgstr, uint8_t val) {
+static int fput(char c, FILE* f) {
+	uart_putc(c);
+	return 0;
+}
+
+void print_can_message(tCAN *message)
+{
+	uint8_t length = message->header.length;
 	
+	printf("id:     0x%3x\r\n", message->id);
+	printf("laenge: %d\r\n", length);
+	printf("rtr:    %d\r\n", message->header.rtr);
+	
+	if (!message->header.rtr) {	
+		printf("daten:  ");
+		
+		for (uint8_t i = 0; i < length; i++) {
+			printf("0x%02x ", message->data[i]);
+		}
+		printf("\r\n");
+	}
 }
 
 Adafruit_VL53L0X tof = Adafruit_VL53L0X();
@@ -77,34 +98,64 @@ char buffer[16];
 uint16_t count = 0;
 int main(void)
 {
+	static FILE uart_stdout;
+	fdev_setup_stream(&uart_stdout, fput, NULL, _FDEV_SETUP_WRITE);
+	stdout = &uart_stdout;
+	
 	DDRD |= (1<<PIN_LED_B);
 	DDRD |= (1<<PIN_LED_G);
 	DDRD |= (1<<PIN_LED_R);
-	
+		
 	init_uart(9600);
 	_delay_us(200);
 	
 	//sei();
 	if (!mcp2515_init()) {
-		uart_puts("Fehler: kann den MCP2515 nicht ansprechen!\r\n");
+		uart_puts("Can't communicate with MCP2515!\r\n");
 		for (;;);
 	}
 	else {
-		uart_puts("MCP2515 is aktiv\r\n");
+		uart_puts("MCP2515 is active\r\n");
 	}
 	i2c_init();
 	tof.begin();
-   
-   VL53L0X_RangingMeasurementData_t measure;
-    while (1) 
+	
+	
+	VL53L0X_RangingMeasurementData_t measure;
+	tCAN message;
+		
+	message.id = CAN_BUS_ADDR;
+	message.header.rtr = 0;
+	message.header.length = 2;
+	message.data[0] = 0xab;
+	message.data[1] = 0xcd;
+		
+		
+	//printf("\r\nwechsle zum Loopback-Modus\r\n");
+	//mcp2515_bit_modify(CANCTRL, (1<<REQOP2)|(1<<REQOP1)|(1<<REQOP0), (1<<REQOP1));
+
+	mcp2515_bit_modify(CANCTRL, (1<<REQOP2)|(1<<REQOP1)|(1<<REQOP0), 0);
+    printf("CNF1: 0x%02x\r\n", mcp2515_read_register(CNF1));
+	while (1) 
     {
 		
 		tof.rangingTest(&measure, false);
 		if (measure.RangeStatus != 4) {
-			uart_puts("Distance (mm): ");
-			itoa(measure.RangeMilliMeter, buffer, 10);
+			uint16_t distance = measure.RangeMilliMeter;
+			printf("Distance (mm): %ld", distance);
 			uart_puts(buffer);
 			uart_puts("\r\n");
+			
+			message.data[0]= (distance>>8) && 0xFF;
+			message.data[1]= (distance) && 0xFF;
+			
+			if (mcp2515_send_message(&message)) {
+				uart_puts("sent them bytes");
+			} else {
+				uart_puts("Error writing message to can bus!\r\n");
+				print_can_message(&message);
+			}
+			
 		} else {
 			// OUT OF RANGE
 		}
@@ -112,7 +163,7 @@ int main(void)
 	    PORTD |= (1<<PIN_LED_B);
 	    _delay_ms(1);
 	    PORTD &= ~(1<<PIN_LED_B);
-	    _delay_ms(99);
+	    _delay_ms(999);
 	    count++;
     }
 }

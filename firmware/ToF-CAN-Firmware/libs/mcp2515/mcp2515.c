@@ -155,6 +155,8 @@ bool mcp2515_init(void)
 		return false;
 	}
 	
+	mcp2515_write_register(CNF1, 0x04);
+	
 	// deaktivate the RXnBF Pins (High Impedance State)
 	mcp2515_write_register(BFPCTRL, 0);
 	
