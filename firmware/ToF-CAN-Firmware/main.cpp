@@ -79,7 +79,7 @@ void print_can_message(tCAN *message)
 	uint8_t length = message->header.length;
 	
 	printf("id:     0x%3x\r\n", message->id);
-	printf("laenge: %d\r\n", length);
+	printf("length: %d\r\n", length);
 	printf("rtr:    %d\r\n", message->header.rtr);
 	
 	if (!message->header.rtr) {	
@@ -134,7 +134,7 @@ int main(void)
 	//printf("\r\nwechsle zum Loopback-Modus\r\n");
 	//mcp2515_bit_modify(CANCTRL, (1<<REQOP2)|(1<<REQOP1)|(1<<REQOP0), (1<<REQOP1));
 
-	mcp2515_bit_modify(CANCTRL, (1<<REQOP2)|(1<<REQOP1)|(1<<REQOP0), 0);
+	//mcp2515_bit_modify(CANCTRL, (1<<REQOP2)|(1<<REQOP1)|(1<<REQOP0), 0);
     printf("CNF1: 0x%02x\r\n", mcp2515_read_register(CNF1));
 	while (1) 
     {
@@ -146,8 +146,8 @@ int main(void)
 			uart_puts(buffer);
 			uart_puts("\r\n");
 			
-			message.data[0]= (distance>>8) && 0xFF;
-			message.data[1]= (distance) && 0xFF;
+			message.data[0]= (distance>>8) & 0xFF;
+			message.data[1]= (distance) & 0xFF;
 			
 			if (mcp2515_send_message(&message)) {
 				uart_puts("sent them bytes");
