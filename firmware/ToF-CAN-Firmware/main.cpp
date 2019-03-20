@@ -194,7 +194,6 @@ int main(void)
 			if (measure.RangeStatus != 4) {
 				uint16_t distance = measure.RangeMilliMeter;
 				if(distance < 8191) {
-					//setColor(COLOR_BLUE);
 					printf("Distance (mm): %u, range status:%d\r\n", distance, measure.RangeStatus);
 				
 					message.data[1] = (distance>>8) & 0xFF;
