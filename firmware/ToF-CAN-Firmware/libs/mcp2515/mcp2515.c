@@ -142,22 +142,22 @@ bool mcp2515_init(void)
 	spi_putc(SPI_WRITE);
 	spi_putc(CNF3);
 	
-	spi_putc((1<<PHSEG21));		// Bitrate 125 kbps at 16 MHz
-	spi_putc((1<<BTLMODE)|(1<<PHSEG11));
-	spi_putc((1<<BRP2)|(1<<BRP1)|(1<<BRP0));
+	spi_putc(0x04);		// Bitrate 1 Mbps at 20 MHz
+	spi_putc(0x89);
+	spi_putc(0x00);
 	
 	// activate interrupts
 	spi_putc((1<<RX1IE)|(1<<RX0IE));
 	SET(MCP2515_CS);
 	
 	// test if we could read back the value => is the chip accessible?
-	if (mcp2515_read_register(CNF1) != ((1<<BRP2)|(1<<BRP1)|(1<<BRP0))) {
+	if (mcp2515_read_register(CNF1) != 0x00) {
 		return false;
 	}
 	
 	mcp2515_write_register(CNF1, 0x00);
 	
-	// deaktivate the RXnBF Pins (High Impedance State)
+	// deactivate the RXnBF Pins (High Impedance State)
 	mcp2515_write_register(BFPCTRL, 0);
 	
 	// set TXnRTS as inputs
