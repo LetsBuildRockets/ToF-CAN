@@ -69,7 +69,7 @@ void mcp2515_bit_modify(uint8_t adress, uint8_t mask, uint8_t data);
 uint8_t mcp2515_read_status(uint8_t type);
 
 // ----------------------------------------------------------------------------
-bool mcp2515_init(void);
+bool mcp2515_init(uint16_t addr);
 
 // ----------------------------------------------------------------------------
 // check if there are any new messages waiting

@@ -108,7 +108,7 @@ uint8_t mcp2515_read_status(uint8_t type)
 }
 
 // -------------------------------------------------------------------------
-bool mcp2515_init(void)
+bool mcp2515_init(uint16_t addr)
 {
 	SET(MCP2515_CS);
 	SET_OUTPUT(MCP2515_CS);
@@ -164,8 +164,17 @@ bool mcp2515_init(void)
 	mcp2515_write_register(TXRTSCTRL, 0);
 	
 	// turn off filters => receive any message
-	mcp2515_write_register(RXB0CTRL, (1<<RXM1)|(1<<RXM0));
-	mcp2515_write_register(RXB1CTRL, (1<<RXM1)|(1<<RXM0));
+	//mcp2515_write_register(RXB0CTRL, (1<<RXM1)|(1<<RXM0));
+	//mcp2515_write_register(RXB1CTRL, (1<<RXM1)|(1<<RXM0));
+	
+	// turn on filters => only receive messages at addr
+	mcp2515_write_register(RXB0CTRL, (0<<RXM1)|(0<<RXM0)|(0<<RXRTR)|(1<<BUKT)|(0<<FILHIT0));
+	mcp2515_write_register(RXB1CTRL, (0<<RXM1)|(0<<RXM0)|(0<<RXRTR)|(0<<FILHIT2)|(0<<FILHIT1)|(0<<FILHIT0));
+	mcp2515_write_register(RXF0SIDH, (addr>>3) & 0xFF);
+	mcp2515_write_register(RXF0SIDL, ((addr & 0x07) << 5)|(0<<EXIDE));
+	mcp2515_write_register(RXM0SIDH, 0xFF);
+	mcp2515_write_register(RXM0SIDL, (0x07 << 5)|(0<<EXIDE));
+	
 	
 	// reset device to normal mode
 	mcp2515_write_register(CANCTRL, 0);
