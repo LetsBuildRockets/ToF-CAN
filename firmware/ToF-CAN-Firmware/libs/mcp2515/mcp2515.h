@@ -33,6 +33,12 @@
 #include <stdbool.h>
 #include <avr/io.h>
 
+#ifdef __AVR_ATmega328PB__
+#define SPDR SPDR0
+#define SPCR SPCR0
+#define SPSR SPSR0
+#endif
+
 #include "mcp2515_defs.h"
 #include "global.h"
 
