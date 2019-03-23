@@ -48,9 +48,12 @@
 #define COLOR_GREEN 2
 #define COLOR_BLUE 3
 
+#define VERSION_MAJOR 1
+#define VERSION_MINOR 1
+
 int errorCode = ERROR_NONE, lastErrorCode = -1;
 uint16_t lastDistance = 0;
-uint32_t canBusAddr;
+uint32_t canBusAddr = 0;
 
 
 void setColor(int color) {
@@ -157,7 +160,7 @@ int sendCANmsg(uint8_t bytes[], int length)
 int sendError(uint8_t _err)
 {
 	uint8_t bytes[2];
-	bytes[0] = CTRL_ERROR;
+	bytes[0] = CTRL_SEND_ERROR;
 	bytes[1] = _err;
 	return sendCANmsg(bytes, 2);	
 }
@@ -165,28 +168,15 @@ int sendError(uint8_t _err)
 int sendMeasurement(uint16_t distance)
 {
 	uint8_t bytes[3];
-	bytes[0] = CTRL_DISTANCE;
+	bytes[0] = CTRL_SEND_DISTANCE;
 	bytes[1] = (distance>>8) & 0xFF;
 	bytes[2] = (distance) & 0xFF;
 	return sendCANmsg(bytes, 3);
 }
 
-int main(void)
+void init()
 {
-	static FILE uart_stdout;
-	fdev_setup_stream(&uart_stdout, fput, NULL, _FDEV_SETUP_WRITE);
-	stdout = &uart_stdout;
-	
-	DDRD |= (1<<PIN_LED_B);
-	DDRD |= (1<<PIN_LED_G);
-	DDRD |= (1<<PIN_LED_R);
-	
-	setColor(COLOR_RED);
-		
-	init_uart(9600);
-	_delay_ms(500);
-	
-		
+	eeprom_busy_wait();
 	uint16_t newAddr = eeprom_read_word(EEPROM_ADDR_LOCATION);
 	if(newAddr >= 0x0620 && newAddr <0x1000)
 	{
@@ -197,7 +187,6 @@ int main(void)
 	{
 		printf("Bad CAN address in EEPROM, defaulting to 0x%04lx!\r\n", DEFAULT_CAN_BUS_ADDR);
 	}
-		
 	if (!mcp2515_init(canBusAddr))
 	{
 		uart_puts("Can't communicate with MCP2515!\r\n");
@@ -216,8 +205,76 @@ int main(void)
 		sendError(errorCode);
 		for (;;);
 	}
+}
+
+ISR(INT0_vect)
+{
+		if(mcp2515_check_message())
+		{
+			tCAN message;
+			mcp2515_get_message(&message);
+			if(message.id > 0 && message.id == canBusAddr)
+			{
+				uint8_t len = message.header.length;
+				switch (message.data[0])
+				{
+					case CTRL_GET_FIRMWARE_VERSION:
+					{
+						uint8_t bytes[3] = {CTRL_SEND_FIRMWARE_VERSION, VERSION_MAJOR, VERSION_MINOR};
+						sendCANmsg(bytes, 3);
+						break;
+					}
+					case CTRL_SET_NEW_ADDR:
+					{
+						if(len > 3)
+						{
+							uint16_t newAddr = message.data[1] << 8 | message.data[2];
+							eeprom_busy_wait();
+							eeprom_write_word(EEPROM_ADDR_LOCATION, newAddr);
+							init();
+						}
+						else
+						{
+							sendError(ERROR_NOT_ENOUGH_DATA_BYTES);
+						}
+						break;
+					}
+					default:
+					{
+						// hmm... command byte doesn't seem right...
+						sendError(ERROR_BAD_CTRL_BYTE);
+					}
+				}
+			}
+		}
+}
+
+
+int main(void)
+{
+	static FILE uart_stdout;
+	fdev_setup_stream(&uart_stdout, fput, NULL, _FDEV_SETUP_WRITE);
+	stdout = &uart_stdout;
+	
+	DDRD |= (1<<PIN_LED_B);
+	DDRD |= (1<<PIN_LED_G);
+	DDRD |= (1<<PIN_LED_R);
+	
+	setColor(COLOR_RED);
+		
+	init_uart(9600);
+	_delay_ms(500);
+			
+	init();
 	
 	_delay_ms(500);
+	
+	// interrupt setup
+	// DDRD |= 1<<PD2;		// Set PD2 as input (Using for interrupt INT0)
+	// PORTD |= 1<<PD2;		// Enable PD2 pull-up resist
+	// GICR = 1<<INT0;					// Enable INT0
+	// MCUCR = 1<<ISC01 | 1<<ISC00;	// Trigger INT0 on rising edge	
+	// sei();				//Enable Global Interrupt
 	
 	VL53L0X_RangingMeasurementData_t measure;
 
@@ -233,6 +290,7 @@ int main(void)
 				if(distance < 8191)
 				{
 					printf("Distance (mm): %u, range status:%d\r\n", distance, measure.RangeStatus);
+					// let's not flood the can bus...
 					if(distance != lastDistance)
 					{						
 						sendMeasurement(distance);
@@ -254,6 +312,7 @@ int main(void)
 			}
 		}
 		
+		// let's not flood the can bus...
 		if(errorCode != lastErrorCode)
 		{
 			sendError(errorCode);
