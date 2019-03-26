@@ -1,9 +1,5 @@
 import org.letsbuildrocekts.libs.TimeOfFlightSensor;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class Robot extends TimedRobot {
   private TimeOfFlightSensor tofsensor;
