@@ -209,44 +209,42 @@ void init()
 
 ISR(INT0_vect)
 {
-		if(mcp2515_check_message())
+	tCAN message;
+	mcp2515_get_message(&message);
+	if(message.id > 0 && message.id == canBusAddr) // I'm not sure this check is necessary, but I want to be sure that if the mask/filters aren't working, we ignore the data
+	{
+		uint8_t len = message.header.length;
+		print_can_message(&message);
+		switch (message.data[0])
 		{
-			tCAN message;
-			mcp2515_get_message(&message);
-			if(message.id > 0 && message.id == canBusAddr)
+			case CTRL_GET_FIRMWARE_VERSION:
 			{
-				uint8_t len = message.header.length;
-				switch (message.data[0])
+				uint8_t bytes[3] = {CTRL_SEND_FIRMWARE_VERSION, VERSION_MAJOR, VERSION_MINOR};
+				sendCANmsg(bytes, 3);
+				break;
+			}
+			case CTRL_SET_NEW_ADDR:
+			{
+				if(len > 3)
 				{
-					case CTRL_GET_FIRMWARE_VERSION:
-					{
-						uint8_t bytes[3] = {CTRL_SEND_FIRMWARE_VERSION, VERSION_MAJOR, VERSION_MINOR};
-						sendCANmsg(bytes, 3);
-						break;
-					}
-					case CTRL_SET_NEW_ADDR:
-					{
-						if(len > 3)
-						{
-							uint16_t newAddr = message.data[1] << 8 | message.data[2];
-							eeprom_busy_wait();
-							eeprom_write_word(EEPROM_ADDR_LOCATION, newAddr);
-							init();
-						}
-						else
-						{
-							sendError(ERROR_NOT_ENOUGH_DATA_BYTES);
-						}
-						break;
-					}
-					default:
-					{
-						// hmm... command byte doesn't seem right...
-						sendError(ERROR_BAD_CTRL_BYTE);
-					}
+					uint16_t newAddr = message.data[1] << 8 | message.data[2];
+					eeprom_busy_wait();
+					eeprom_write_word(EEPROM_ADDR_LOCATION, newAddr);
+					init();
 				}
+				else
+				{
+					sendError(ERROR_NOT_ENOUGH_DATA_BYTES);
+				}
+				break;
+			}
+			default:
+			{
+				// hmm... command byte doesn't seem right...
+				sendError(ERROR_BAD_CTRL_BYTE);
 			}
 		}
+	}
 }
 
 
@@ -270,17 +268,17 @@ int main(void)
 	_delay_ms(500);
 	
 	// interrupt setup
-	// DDRD |= 1<<PD2;		// Set PD2 as input (Using for interrupt INT0)
-	// PORTD |= 1<<PD2;		// Enable PD2 pull-up resist
-	// GICR = 1<<INT0;					// Enable INT0
-	// MCUCR = 1<<ISC01 | 1<<ISC00;	// Trigger INT0 on rising edge	
-	// sei();				//Enable Global Interrupt
+	DDRD |= 1<< DDD2;		// Set PD2 as input (Using for interrupt INT0)
+	PORTD |= 1<< DDD2;		// Enable PD2 pull-up resist
+	EICRA = (1<<ISC01)| (0<<ISC00);					// Enable INT0 on rising
+	
 	
 	VL53L0X_RangingMeasurementData_t measure;
 
 	mcp2515_bit_modify(CANCTRL, (1<<REQOP2)|(1<<REQOP1)|(1<<REQOP0), 0);
 	while (1) 
     {
+		cli();
 		if(errorCode != ERROR_INIT_CAN && errorCode != ERROR_INIT_VL53L0X)
 		{
 			tof.rangingTest(&measure, false);
@@ -343,6 +341,8 @@ int main(void)
 			setColor(COLOR_RED);
 		}
 		if(++count>4) count = 0;
+		
+		sei();
 			
 	    _delay_ms(15);
 

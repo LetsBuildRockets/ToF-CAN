@@ -175,6 +175,8 @@ bool mcp2515_init(uint16_t addr)
 	mcp2515_write_register(RXM0SIDH, 0xFF);
 	mcp2515_write_register(RXM0SIDL, (0x07 << 5)|(0<<EXIDE));
 	
+	// enable rx0 an rx1 interrupts
+	mcp2515_write_register(CANINTE, (1<<RX1IE) | (1<<RX0IE));
 	
 	// reset device to normal mode
 	mcp2515_write_register(CANCTRL, 0);
