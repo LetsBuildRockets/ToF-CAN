@@ -209,8 +209,12 @@ void init()
 
 ISR(INT0_vect)
 {
+	// This is a really long ISR (also it has a busy loop in it...), but it should rarely be called (only during init), so I'm not too worried about it
+	
 	tCAN message;
 	mcp2515_get_message(&message);
+	uart_puts("We received a message!\r\n");
+	print_can_message(&message);
 	if(message.id > 0 && message.id == canBusAddr) // I'm not sure this check is necessary, but I want to be sure that if the mask/filters aren't working, we ignore the data
 	{
 		uint8_t len = message.header.length;
