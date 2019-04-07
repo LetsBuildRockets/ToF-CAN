@@ -55,6 +55,8 @@ int errorCode = ERROR_NONE, lastErrorCode = -1;
 uint16_t lastDistance = 0;
 uint32_t canBusAddr = 0;
 
+uint32_t lastTimeISentAnErrorCode = 0;
+
 
 void setColor(int color) {
 	switch(color){
@@ -114,7 +116,8 @@ void print_can_message(tCAN *message)
 {
 	uint8_t length = message->header.length;
 	
-	printf("id:     0x%3x\r\n", message->id);
+	printf("id:     0x%4x\r\n", message->id);
+	printf("ex:     0x%4x\r\n", message->ex);
 	printf("length: %d\r\n", length);
 	printf("rtr:    %d\r\n", message->header.rtr);
 	
@@ -133,12 +136,14 @@ void print_can_message(tCAN *message)
 Adafruit_VL53L0X tof = Adafruit_VL53L0X();
 
 uint8_t count = 0;
+uint8_t timesincelasterrorsend = 0;
 
 int sendCANmsg(uint8_t bytes[], int length)
 {
 		tCAN message;
 		
 		message.id = canBusAddr;
+		message.ex = 0;
 		message.header.rtr = 0;
 		message.header.length = length;
 		for(int i = 0; i<length; i++)
@@ -162,23 +167,26 @@ int sendError(uint8_t _err)
 	uint8_t bytes[2];
 	bytes[0] = CTRL_SEND_ERROR;
 	bytes[1] = _err;
+	printf("send  error: %d\r\n", _err);
 	return sendCANmsg(bytes, 2);	
 }
 
-int sendMeasurement(uint16_t distance)
+int sendMeasurement(uint16_t distance, uint8_t _err)
 {
-	uint8_t bytes[3];
+	uint8_t bytes[4];
 	bytes[0] = CTRL_SEND_DISTANCE;
 	bytes[1] = (distance>>8) & 0xFF;
 	bytes[2] = (distance) & 0xFF;
-	return sendCANmsg(bytes, 3);
+	bytes[3] = _err;
+	printf("send distance: %d, error: %d\r\n", distance, _err);
+	return sendCANmsg(bytes, 4);
 }
 
-void init()
+void init()		
 {
 	eeprom_busy_wait();
 	uint16_t newAddr = eeprom_read_word(EEPROM_ADDR_LOCATION);
-	if(newAddr >= 0x0620 && newAddr <0x1000)
+	if(newAddr >= 0x0620 && newAddr < 0x1000)
 	{
 		printf("Got CAN address in EEPROM: 0x%04x!\r\n", newAddr);
 		canBusAddr = newAddr;
@@ -207,15 +215,14 @@ void init()
 	}
 }
 
-ISR(INT0_vect)
+void checkMessage()
 {
-	// This is a really long ISR (also it has a busy loop in it...), but it should rarely be called (only during init), so I'm not too worried about it
-	
+	//if(!mcp2515_check_message()) return;
 	tCAN message;
-	mcp2515_get_message(&message);
-	uart_puts("We received a message!\r\n");
-	print_can_message(&message);
-	if(message.id > 0 && message.id == canBusAddr) // I'm not sure this check is necessary, but I want to be sure that if the mask/filters aren't working, we ignore the data
+	if(!mcp2515_get_message(&message)) return;
+	printf("We received a message at 0x%04x, 0x%04x\r\n", message.id, message.ex);
+	//print_can_message(&message);
+	if(message.id == 0x00 && message.ex > 0 && message.ex == canBusAddr) // I'm not sure this check is necessary, but I want to be sure that if the mask/filters aren't working, we ignore the data
 	{
 		uint8_t len = message.header.length;
 		print_can_message(&message);
@@ -223,6 +230,7 @@ ISR(INT0_vect)
 		{
 			case CTRL_GET_FIRMWARE_VERSION:
 			{
+				printf("firmware request....\r\n");
 				uint8_t bytes[3] = {CTRL_SEND_FIRMWARE_VERSION, VERSION_MAJOR, VERSION_MINOR};
 				sendCANmsg(bytes, 3);
 				break;
@@ -251,6 +259,13 @@ ISR(INT0_vect)
 	}
 }
 
+ISR(INT0_vect)
+{
+	// This is a really long ISR (also it has a busy loop in it...), but it should rarely be called (only during init), so I'm not too worried about it
+	
+	//checkMessage();
+}
+
 
 int main(void)
 {
@@ -272,38 +287,37 @@ int main(void)
 	_delay_ms(500);
 	
 	// interrupt setup
-	DDRD |= 1<< DDD2;		// Set PD2 as input (Using for interrupt INT0)
-	PORTD |= 1<< DDD2;		// Enable PD2 pull-up resist
-	EICRA = (1<<ISC01)| (0<<ISC00);					// Enable INT0 on rising
+	//DDRD |= 1<< DDD2;		// Set PD2 as input (Using for interrupt INT0)
+	//PORTD |= 1<< DDD2;		// Enable PD2 pull-up resist
+	//EICRA = (0<<ISC01)| (0<<ISC00);					// Enable INT0 on LOGIC lOW
 	
 	
 	VL53L0X_RangingMeasurementData_t measure;
 
-	mcp2515_bit_modify(CANCTRL, (1<<REQOP2)|(1<<REQOP1)|(1<<REQOP0), 0);
 	while (1) 
     {
-		cli();
+		//cli();
 		if(errorCode != ERROR_INIT_CAN && errorCode != ERROR_INIT_VL53L0X)
 		{
 			tof.rangingTest(&measure, false);
 			if (measure.RangeStatus != 4)
 			{
 				uint16_t distance = measure.RangeMilliMeter;
-				if(distance < 8191)
+				if(distance < 8191 && distance > 30)
 				{
-					printf("Distance (mm): %u, range status:%d\r\n", distance, measure.RangeStatus);
+					//printf("Distance (mm): %u, range status:%d\r\n", distance, measure.RangeStatus);
 					// let's not flood the can bus...
-					if(distance != lastDistance)
-					{						
-						sendMeasurement(distance);
+					//if(distance != lastDistance)
+					//{						
+						sendMeasurement(distance, errorCode);
 						lastDistance = distance;
-					}
+					//}
 				
 					errorCode = ERROR_NONE;
 				}
 				else
 				{
-					// sometimes we get a bad reading of 8191 or 8192?
+					// sometimes we get a bad reading of 8191 or 8192? also when out of range we sometimes read 0 - 25ish
 					errorCode = ERROR_OUT_OF_RANGE;
 				}
 			}
@@ -315,10 +329,11 @@ int main(void)
 		}
 		
 		// let's not flood the can bus...
-		if(errorCode != lastErrorCode)
+		if((errorCode != lastErrorCode && errorCode != ERROR_NONE && errorCode != ERROR_OUT_OF_RANGE) || timesincelasterrorsend > 10)
 		{
 			sendError(errorCode);
 			lastErrorCode = errorCode;
+			timesincelasterrorsend = 0;
 		}
 				
 		if(errorCode == ERROR_NONE)
@@ -345,10 +360,11 @@ int main(void)
 			setColor(COLOR_RED);
 		}
 		if(++count>4) count = 0;
+		timesincelasterrorsend++;
+		//sei();
 		
-		sei();
-			
-	    _delay_ms(15);
+		checkMessage();
+	    _delay_ms(20);
 
     }
 }

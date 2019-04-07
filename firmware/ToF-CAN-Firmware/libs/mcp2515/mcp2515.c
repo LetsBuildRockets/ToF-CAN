@@ -155,8 +155,6 @@ bool mcp2515_init(uint16_t addr)
 		return false;
 	}
 	
-	mcp2515_write_register(CNF1, 0x00);
-	
 	// deactivate the RXnBF Pins (High Impedance State)
 	mcp2515_write_register(BFPCTRL, 0);
 	
@@ -167,16 +165,56 @@ bool mcp2515_init(uint16_t addr)
 	//mcp2515_write_register(RXB0CTRL, (1<<RXM1)|(1<<RXM0));
 	//mcp2515_write_register(RXB1CTRL, (1<<RXM1)|(1<<RXM0));
 	
-	// turn on filters => only receive messages at addr
-	mcp2515_write_register(RXB0CTRL, (0<<RXM1)|(0<<RXM0)|(0<<RXRTR)|(1<<BUKT)|(0<<FILHIT0));
-	mcp2515_write_register(RXB1CTRL, (0<<RXM1)|(0<<RXM0)|(0<<RXRTR)|(0<<FILHIT2)|(0<<FILHIT1)|(0<<FILHIT0));
-	mcp2515_write_register(RXF0SIDH, (addr>>3) & 0xFF);
-	mcp2515_write_register(RXF0SIDL, ((addr & 0x07) << 5)|(0<<EXIDE));
-	mcp2515_write_register(RXM0SIDH, 0xFF);
-	mcp2515_write_register(RXM0SIDL, (0x07 << 5)|(0<<EXIDE));
+	// config mode
+	mcp2515_write_register(CANCTRL, 0x80);
 	
+	// turn on filters => only receive messages at addr
+	mcp2515_write_register(RXB0CTRL, (0<<RXM1)|(0<<RXM0)|(1<<BUKT));
+	mcp2515_write_register(RXB1CTRL, (0<<RXM1)|(0<<RXM0));
+	
+	mcp2515_write_register(RXF0SIDH, 0x00);
+	mcp2515_write_register(RXF0SIDL, 1<<EXIDE);
+	mcp2515_write_register(RXF0EID8, (addr >> 8) & 0xFF);
+	mcp2515_write_register(RXF0EID0, addr & 0xFF);
+	
+	mcp2515_write_register(RXF1SIDH, 0x00);
+	mcp2515_write_register(RXF1SIDL, 1<<EXIDE);
+	mcp2515_write_register(RXF1EID8, (addr >> 8) & 0xFF);
+	mcp2515_write_register(RXF1EID0, addr & 0xFF);
+	
+	mcp2515_write_register(RXF2SIDH, 0x00);
+	mcp2515_write_register(RXF2SIDL, 1<<EXIDE);
+	mcp2515_write_register(RXF2EID8, (addr >> 8) & 0xFF);
+	mcp2515_write_register(RXF2EID0, addr & 0xFF);
+	
+	mcp2515_write_register(RXF3SIDH, 0x00);
+	mcp2515_write_register(RXF3SIDL, 1<<EXIDE);
+	mcp2515_write_register(RXF3EID8, (addr >> 8) & 0xFF);
+	mcp2515_write_register(RXF3EID0, addr & 0xFF);
+	
+	mcp2515_write_register(RXF4SIDH, 0x00);
+	mcp2515_write_register(RXF4SIDL, 1<<EXIDE);
+	mcp2515_write_register(RXF4EID8, (addr >> 8) & 0xFF);
+	mcp2515_write_register(RXF4EID0, addr & 0xFF);
+	
+	mcp2515_write_register(RXF5SIDH, 0x00);
+	mcp2515_write_register(RXF5SIDL, 1<<EXIDE);
+	mcp2515_write_register(RXF5EID8, (addr >> 8) & 0xFF);
+	mcp2515_write_register(RXF5EID0, addr & 0xFF);
+	
+	mcp2515_write_register(RXM0SIDH, 0xFF);
+	mcp2515_write_register(RXM0SIDL, 0xFF);
+	mcp2515_write_register(RXM0EID8, 0xFF);
+	mcp2515_write_register(RXM0EID0, 0xFF);
+	
+	mcp2515_write_register(RXM1SIDH, 0xFF);
+	mcp2515_write_register(RXM1SIDL, 0xFF);
+	mcp2515_write_register(RXM1EID8, 0xFF);
+	mcp2515_write_register(RXM1EID0, 0xFF);
+		
 	// enable rx0 an rx1 interrupts
 	mcp2515_write_register(CANINTE, (1<<RX1IE) | (1<<RX0IE));
+	//mcp2515_write_register(CANINTE, 0xFF);
 	
 	// reset device to normal mode
 	mcp2515_write_register(CANCTRL, 0);
@@ -233,8 +271,8 @@ uint8_t mcp2515_get_message(tCAN *message)
 	message->id  = (uint16_t) spi_putc(0xff) << 3;
 	message->id |=            spi_putc(0xff) >> 5;
 	
-	spi_putc(0xff);
-	spi_putc(0xff);
+	message->ex = (uint16_t) spi_putc(0xff) << 8;
+	message->ex |= spi_putc(0xff);
 	
 	// read DLC
 	uint8_t length = spi_putc(0xff) & 0x0f;

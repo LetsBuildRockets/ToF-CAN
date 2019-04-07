@@ -46,6 +46,7 @@
 typedef struct
 {
 	uint16_t id;
+	uint16_t ex;
 	struct {
 		int8_t rtr : 1;
 		uint8_t length : 4;
