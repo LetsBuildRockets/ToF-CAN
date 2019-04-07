@@ -11,4 +11,12 @@ public class VersionNumber {
         major = _major;
         minor = _minor;
     }
+
+    public boolean isOlderThan(VersionNumber req) {
+        return(major < req.major || (major == req.major && minor < req.minor));
+    }
+
+    public String toString() {
+        return String.format("%d.%d", major, minor);
+    }
 }
