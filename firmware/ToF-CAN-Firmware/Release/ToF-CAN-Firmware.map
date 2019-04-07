@@ -683,7 +683,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x5016
+.text           0x00000000     0x5020
  *(.vectors)
  .vectors       0x00000000       0xb4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328pb/avr5/crtatmega328pb.o
                 0x00000000                __vector_default
@@ -868,307 +868,307 @@ END GROUP
                 0x00000b5e       0x14 main.o
                 0x00000b5e                __vector_1
  .text.startup.main
-                0x00000b72      0x180 main.o
+                0x00000b72      0x18a main.o
                 0x00000b72                main
  .text.startup._GLOBAL__sub_I__Z8i2c_initv
-                0x00000cf2       0x2e main.o
+                0x00000cfc       0x2e main.o
  .text.VL53L0X_GetFractionEnable
-                0x00000d20       0x1e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00000d20                VL53L0X_GetFractionEnable
+                0x00000d2a       0x1e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00000d2a                VL53L0X_GetFractionEnable
  .text.VL53L0X_SetMeasurementTimingBudgetMicroSeconds
-                0x00000d3e        0x4 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00000d3e                VL53L0X_SetMeasurementTimingBudgetMicroSeconds
+                0x00000d48        0x4 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00000d48                VL53L0X_SetMeasurementTimingBudgetMicroSeconds
  .text.VL53L0X_GetVcselPulsePeriod
-                0x00000d42        0x4 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00000d42                VL53L0X_GetVcselPulsePeriod
+                0x00000d4c        0x4 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00000d4c                VL53L0X_GetVcselPulsePeriod
  .text.VL53L0X_SetSequenceStepEnable
-                0x00000d46       0xe2 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00000d46                VL53L0X_SetSequenceStepEnable
+                0x00000d50       0xe2 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00000d50                VL53L0X_SetSequenceStepEnable
  .text.VL53L0X_GetSequenceStepEnables
-                0x00000e28       0x5a D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00000e28                VL53L0X_GetSequenceStepEnables
+                0x00000e32       0x5a D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00000e32                VL53L0X_GetSequenceStepEnables
  .text.VL53L0X_GetSequenceStepTimeout
-                0x00000e82       0xd6 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00000e82                VL53L0X_GetSequenceStepTimeout
+                0x00000e8c       0xd6 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00000e8c                VL53L0X_GetSequenceStepTimeout
  .text.VL53L0X_GetInterMeasurementPeriodMilliSeconds
-                0x00000f58       0x98 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00000f58                VL53L0X_GetInterMeasurementPeriodMilliSeconds
+                0x00000f62       0x98 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00000f62                VL53L0X_GetInterMeasurementPeriodMilliSeconds
  .text.VL53L0X_GetXTalkCompensationEnable
-                0x00000ff0        0xc D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00000ff0                VL53L0X_GetXTalkCompensationEnable
+                0x00000ffa        0xc D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00000ffa                VL53L0X_GetXTalkCompensationEnable
  .text.VL53L0X_GetXTalkCompensationRateMegaCps
-                0x00000ffc       0x82 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00000ffc                VL53L0X_GetXTalkCompensationRateMegaCps
+                0x00001006       0x82 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001006                VL53L0X_GetXTalkCompensationRateMegaCps
  .text.VL53L0X_SetLimitCheckEnable
-                0x0000107e       0xcc D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x0000107e                VL53L0X_SetLimitCheckEnable
+                0x00001088       0xcc D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001088                VL53L0X_SetLimitCheckEnable
  .text.VL53L0X_GetLimitCheckEnable
-                0x0000114a       0x1e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x0000114a                VL53L0X_GetLimitCheckEnable
+                0x00001154       0x1e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001154                VL53L0X_GetLimitCheckEnable
  .text.VL53L0X_SetLimitCheckValue
-                0x00001168       0xcc D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00001168                VL53L0X_SetLimitCheckValue
+                0x00001172       0xcc D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001172                VL53L0X_SetLimitCheckValue
  .text.VL53L0X_GetLimitCheckValue
-                0x00001234       0xfa D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00001234                VL53L0X_GetLimitCheckValue
+                0x0000123e       0xfa D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x0000123e                VL53L0X_GetLimitCheckValue
  .text.VL53L0X_GetWrapAroundCheckEnable
-                0x0000132e       0x5c D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x0000132e                VL53L0X_GetWrapAroundCheckEnable
+                0x00001338       0x5c D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001338                VL53L0X_GetWrapAroundCheckEnable
  .text.VL53L0X_GetDeviceParameters
-                0x0000138a       0xea D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x0000138a                VL53L0X_GetDeviceParameters
+                0x00001394       0xea D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001394                VL53L0X_GetDeviceParameters
  .text.VL53L0X_DataInit
-                0x00001474      0x230 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00001474                VL53L0X_DataInit
+                0x0000147e      0x230 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x0000147e                VL53L0X_DataInit
  .text.VL53L0X_PerformRefCalibration
-                0x000016a4        0x6 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x000016a4                VL53L0X_PerformRefCalibration
+                0x000016ae        0x6 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x000016ae                VL53L0X_PerformRefCalibration
  .text.VL53L0X_GetRangingMeasurementData
-                0x000016aa      0x27c D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x000016aa                VL53L0X_GetRangingMeasurementData
+                0x000016b4      0x27c D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x000016b4                VL53L0X_GetRangingMeasurementData
  .text.VL53L0X_GetInterruptThresholds
-                0x00001926       0x64 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00001926                VL53L0X_GetInterruptThresholds
+                0x00001930       0x64 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001930                VL53L0X_GetInterruptThresholds
  .text._Z37VL53L0X_CheckAndLoadInterruptSettingsP13VL53L0X_Dev_th
-                0x0000198a       0xc6 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x0000198a                _Z37VL53L0X_CheckAndLoadInterruptSettingsP13VL53L0X_Dev_th
+                0x00001994       0xc6 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001994                _Z37VL53L0X_CheckAndLoadInterruptSettingsP13VL53L0X_Dev_th
  .text.VL53L0X_StartMeasurement
-                0x00001a50      0x11e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00001a50                VL53L0X_StartMeasurement
+                0x00001a5a      0x11e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001a5a                VL53L0X_StartMeasurement
  .text.VL53L0X_PerformSingleMeasurement
-                0x00001b6e       0x38 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00001b6e                VL53L0X_PerformSingleMeasurement
+                0x00001b78       0x38 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001b78                VL53L0X_PerformSingleMeasurement
  .text.VL53L0X_ClearInterruptMask
-                0x00001ba6       0x66 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00001ba6                VL53L0X_ClearInterruptMask
+                0x00001bb0       0x66 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001bb0                VL53L0X_ClearInterruptMask
  .text.VL53L0X_PerformSingleRangingMeasurement
-                0x00001c0c       0x40 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00001c0c                VL53L0X_PerformSingleRangingMeasurement
+                0x00001c16       0x40 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001c16                VL53L0X_PerformSingleRangingMeasurement
  .text.VL53L0X_SetGpioConfig
-                0x00001c4c      0x15e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00001c4c                VL53L0X_SetGpioConfig
+                0x00001c56      0x15e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001c56                VL53L0X_SetGpioConfig
  .text.VL53L0X_StaticInit
-                0x00001daa      0x25e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00001daa                VL53L0X_StaticInit
+                0x00001db4      0x25e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00001db4                VL53L0X_StaticInit
  .text.VL53L0X_GetInterruptMaskStatus
-                0x00002008       0x44 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x00002008                VL53L0X_GetInterruptMaskStatus
+                0x00002012       0x44 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00002012                VL53L0X_GetInterruptMaskStatus
  .text.VL53L0X_GetMeasurementDataReady
-                0x0000204c       0x70 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x0000204c                VL53L0X_GetMeasurementDataReady
+                0x00002056       0x70 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x00002056                VL53L0X_GetMeasurementDataReady
  .text.VL53L0X_PerformRefSpadManagement
-                0x000020bc        0x4 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
-                0x000020bc                VL53L0X_PerformRefSpadManagement
+                0x000020c6        0x4 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api.o)
+                0x000020c6                VL53L0X_PerformRefSpadManagement
  .text.VL53L0X_get_offset_calibration_data_micro_meter
-                0x000020c0       0x5c D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x000020c0                VL53L0X_get_offset_calibration_data_micro_meter
+                0x000020ca       0x5c D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x000020ca                VL53L0X_get_offset_calibration_data_micro_meter
  .text._Z18get_next_good_spadPhmmPl
-                0x0000211c      0x14a D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x0000211c                _Z18get_next_good_spadPhmmPl
+                0x00002126      0x14a D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x00002126                _Z18get_next_good_spadPhmmPl
  .text._Z11is_aperturem
-                0x00002266       0x38 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x00002266                _Z11is_aperturem
+                0x00002270       0x38 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x00002270                _Z11is_aperturem
  .text._Z15enable_spad_bitPhmm
-                0x0000229e       0x5c D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x0000229e                _Z15enable_spad_bitPhmm
+                0x000022a8       0x5c D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x000022a8                _Z15enable_spad_bitPhmm
  .text._Z16set_ref_spad_mapP13VL53L0X_Dev_tPh
-                0x000022fa       0x1a D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x000022fa                _Z16set_ref_spad_mapP13VL53L0X_Dev_tPh
+                0x00002304       0x1a D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x00002304                _Z16set_ref_spad_mapP13VL53L0X_Dev_tPh
  .text._Z16get_ref_spad_mapP13VL53L0X_Dev_tPh
-                0x00002314       0x1a D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x00002314                _Z16get_ref_spad_mapP13VL53L0X_Dev_tPh
+                0x0000231e       0x1a D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x0000231e                _Z16get_ref_spad_mapP13VL53L0X_Dev_tPh
  .text._Z16enable_ref_spadsP13VL53L0X_Dev_thPhS1_mmmmPm
-                0x0000232e      0x198 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x0000232e                _Z16enable_ref_spadsP13VL53L0X_Dev_thPhS1_mmmmPm
+                0x00002338      0x198 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x00002338                _Z16enable_ref_spadsP13VL53L0X_Dev_thPhS1_mmmmPm
  .text._Z30perform_ref_signal_measurementP13VL53L0X_Dev_tPj
-                0x000024c6       0xae D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x000024c6                _Z30perform_ref_signal_measurementP13VL53L0X_Dev_tPj
+                0x000024d0       0xae D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x000024d0                _Z30perform_ref_signal_measurementP13VL53L0X_Dev_tPj
  .text.VL53L0X_set_reference_spads
-                0x00002574      0x154 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x00002574                VL53L0X_set_reference_spads
+                0x0000257e      0x154 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x0000257e                VL53L0X_set_reference_spads
  .text._Z38VL53L0X_perform_single_ref_calibrationP13VL53L0X_Dev_th
-                0x000026c8       0x42 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x000026c8                _Z38VL53L0X_perform_single_ref_calibrationP13VL53L0X_Dev_th
+                0x000026d2       0x42 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x000026d2                _Z38VL53L0X_perform_single_ref_calibrationP13VL53L0X_Dev_th
  .text._Z26VL53L0X_ref_calibration_ioP13VL53L0X_Dev_thhhPhS1_hh
-                0x0000270a       0xea D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x0000270a                _Z26VL53L0X_ref_calibration_ioP13VL53L0X_Dev_thhhPhS1_hh
+                0x00002714       0xea D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x00002714                _Z26VL53L0X_ref_calibration_ioP13VL53L0X_Dev_thhhPhS1_hh
  .text._Z31VL53L0X_perform_vhv_calibrationP13VL53L0X_Dev_tPhhh
-                0x000027f4       0xb0 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x000027f4                _Z31VL53L0X_perform_vhv_calibrationP13VL53L0X_Dev_tPhhh
+                0x000027fe       0xb0 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x000027fe                _Z31VL53L0X_perform_vhv_calibrationP13VL53L0X_Dev_tPhhh
  .text.VL53L0X_perform_phase_calibration
-                0x000028a4       0xac D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x000028a4                VL53L0X_perform_phase_calibration
+                0x000028ae       0xac D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x000028ae                VL53L0X_perform_phase_calibration
  .text.VL53L0X_perform_ref_calibration
-                0x00002950       0x60 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x00002950                VL53L0X_perform_ref_calibration
+                0x0000295a       0x60 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x0000295a                VL53L0X_perform_ref_calibration
  .text.VL53L0X_perform_ref_spad_management
-                0x000029b0      0x464 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
-                0x000029b0                VL53L0X_perform_ref_spad_management
+                0x000029ba      0x464 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_calibration.o)
+                0x000029ba                VL53L0X_perform_ref_spad_management
  .text.VL53L0X_measurement_poll_for_completion
-                0x00002e14       0x54 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x00002e14                VL53L0X_measurement_poll_for_completion
+                0x00002e1e       0x54 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x00002e1e                VL53L0X_measurement_poll_for_completion
  .text._Z26VL53L0X_device_read_strobeP13VL53L0X_Dev_t
-                0x00002e68       0x70 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x00002e68                _Z26VL53L0X_device_read_strobeP13VL53L0X_Dev_t
+                0x00002e72       0x70 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x00002e72                _Z26VL53L0X_device_read_strobeP13VL53L0X_Dev_t
  .text.VL53L0X_get_info_from_device
-                0x00002ed8      0x70e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x00002ed8                VL53L0X_get_info_from_device
+                0x00002ee2      0x70e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x00002ee2                VL53L0X_get_info_from_device
  .text.VL53L0X_encode_timeout
-                0x000035e6       0x54 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x000035e6                VL53L0X_encode_timeout
+                0x000035f0       0x54 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x000035f0                VL53L0X_encode_timeout
  .text.VL53L0X_calc_timeout_mclks
-                0x0000363a       0x8a D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x0000363a                VL53L0X_calc_timeout_mclks
+                0x00003644       0x8a D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x00003644                VL53L0X_calc_timeout_mclks
  .text._Z23VL53L0X_calc_timeout_usP13VL53L0X_Dev_tjh
-                0x000036c4       0x9e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x000036c4                _Z23VL53L0X_calc_timeout_usP13VL53L0X_Dev_tjh
+                0x000036ce       0x9e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x000036ce                _Z23VL53L0X_calc_timeout_usP13VL53L0X_Dev_tjh
  .text.get_sequence_step_timeout
-                0x00003762      0x1c2 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x00003762                get_sequence_step_timeout
+                0x0000376c      0x1c2 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x0000376c                get_sequence_step_timeout
  .text.set_sequence_step_timeout
-                0x00003924      0x1a0 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x00003924                set_sequence_step_timeout
+                0x0000392e      0x1a0 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x0000392e                set_sequence_step_timeout
  .text.VL53L0X_get_vcsel_pulse_period
-                0x00003ac4       0x4c D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x00003ac4                VL53L0X_get_vcsel_pulse_period
+                0x00003ace       0x4c D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x00003ace                VL53L0X_get_vcsel_pulse_period
  .text.VL53L0X_set_measurement_timing_budget_micro_seconds
-                0x00003b10      0x196 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x00003b10                VL53L0X_set_measurement_timing_budget_micro_seconds
+                0x00003b1a      0x196 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x00003b1a                VL53L0X_set_measurement_timing_budget_micro_seconds
  .text.VL53L0X_get_measurement_timing_budget_micro_seconds
-                0x00003ca6      0x1ce D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x00003ca6                VL53L0X_get_measurement_timing_budget_micro_seconds
+                0x00003cb0      0x1ce D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x00003cb0                VL53L0X_get_measurement_timing_budget_micro_seconds
  .text.VL53L0X_load_tuning_settings
-                0x00003e74      0x1b4 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x00003e74                VL53L0X_load_tuning_settings
+                0x00003e7e      0x1b4 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x00003e7e                VL53L0X_load_tuning_settings
  .text.VL53L0X_get_total_xtalk_rate
-                0x00004028       0x90 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x00004028                VL53L0X_get_total_xtalk_rate
+                0x00004032       0x90 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x00004032                VL53L0X_get_total_xtalk_rate
  .text.VL53L0X_get_total_signal_rate
-                0x000040b8       0x78 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x000040b8                VL53L0X_get_total_signal_rate
+                0x000040c2       0x78 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x000040c2                VL53L0X_get_total_signal_rate
  .text.VL53L0X_calc_sigma_estimate
-                0x00004130       0xea D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x00004130                VL53L0X_calc_sigma_estimate
+                0x0000413a       0xea D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x0000413a                VL53L0X_calc_sigma_estimate
  .text.VL53L0X_get_pal_range_status
-                0x0000421a      0x308 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
-                0x0000421a                VL53L0X_get_pal_range_status
+                0x00004224      0x308 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_api_core.o)
+                0x00004224                VL53L0X_get_pal_range_status
  .text.VL53L0X_WriteMulti
-                0x00004522       0x32 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
-                0x00004522                VL53L0X_WriteMulti
+                0x0000452c       0x32 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
+                0x0000452c                VL53L0X_WriteMulti
  .text.VL53L0X_ReadMulti
-                0x00004554       0x32 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
-                0x00004554                VL53L0X_ReadMulti
+                0x0000455e       0x32 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
+                0x0000455e                VL53L0X_ReadMulti
  .text.VL53L0X_WrByte
-                0x00004586       0x18 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
-                0x00004586                VL53L0X_WrByte
+                0x00004590       0x18 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
+                0x00004590                VL53L0X_WrByte
  .text.VL53L0X_WrWord
-                0x0000459e       0x18 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
-                0x0000459e                VL53L0X_WrWord
+                0x000045a8       0x18 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
+                0x000045a8                VL53L0X_WrWord
  .text.VL53L0X_UpdateByte
-                0x000045b6       0x5a D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
-                0x000045b6                VL53L0X_UpdateByte
+                0x000045c0       0x5a D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
+                0x000045c0                VL53L0X_UpdateByte
  .text.VL53L0X_RdByte
-                0x00004610       0x18 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
-                0x00004610                VL53L0X_RdByte
+                0x0000461a       0x18 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
+                0x0000461a                VL53L0X_RdByte
  .text.VL53L0X_RdWord
-                0x00004628       0x18 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
-                0x00004628                VL53L0X_RdWord
+                0x00004632       0x18 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
+                0x00004632                VL53L0X_RdWord
  .text.VL53L0X_RdDWord
-                0x00004640       0x18 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
-                0x00004640                VL53L0X_RdDWord
+                0x0000464a       0x18 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
+                0x0000464a                VL53L0X_RdDWord
  .text.VL53L0X_PollingDelay
-                0x00004658       0x50 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
-                0x00004658                VL53L0X_PollingDelay
+                0x00004662       0x50 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_platform.o)
+                0x00004662                VL53L0X_PollingDelay
  .text._Z19VL53L0X_write_multihhPhm
-                0x000046a8       0x64 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
-                0x000046a8                _Z19VL53L0X_write_multihhPhm
+                0x000046b2       0x64 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
+                0x000046b2                _Z19VL53L0X_write_multihhPhm
  .text._Z18VL53L0X_read_multihhPhm
-                0x0000470c       0x74 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
-                0x0000470c                _Z18VL53L0X_read_multihhPhm
+                0x00004716       0x74 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
+                0x00004716                _Z18VL53L0X_read_multihhPhm
  .text._Z18VL53L0X_write_bytehhh
-                0x00004780       0x2e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
-                0x00004780                _Z18VL53L0X_write_bytehhh
+                0x0000478a       0x2e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
+                0x0000478a                _Z18VL53L0X_write_bytehhh
  .text._Z18VL53L0X_write_wordhhj
-                0x000047ae       0x32 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
-                0x000047ae                _Z18VL53L0X_write_wordhhj
+                0x000047b8       0x32 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
+                0x000047b8                _Z18VL53L0X_write_wordhhj
  .text._Z17VL53L0X_read_bytehhPh
-                0x000047e0       0x16 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
-                0x000047e0                _Z17VL53L0X_read_bytehhPh
+                0x000047ea       0x16 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
+                0x000047ea                _Z17VL53L0X_read_bytehhPh
  .text._Z17VL53L0X_read_wordhhPj
-                0x000047f6       0x48 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
-                0x000047f6                _Z17VL53L0X_read_wordhhPj
+                0x00004800       0x48 D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
+                0x00004800                _Z17VL53L0X_read_wordhhPj
  .text._Z18VL53L0X_read_dwordhhPm
-                0x0000483e       0x6e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
-                0x0000483e                _Z18VL53L0X_read_dwordhhPm
+                0x00004848       0x6e D:\Users\erics\Documents\TOF-CAN\firmware\ToF-CAN-Firmware\libs\Adafruit_VL53L0X\libVL530L0X.a(vl53l0x_i2c_comms.o)
+                0x00004848                _Z18VL53L0X_read_dwordhhPm
  .text.libgcc.div
-                0x000048ac       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
-                0x000048ac                __udivmodhi4
+                0x000048b6       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x000048b6                __udivmodhi4
  .text.libgcc.div
-                0x000048d4       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x000048d4                __udivmodsi4
+                0x000048de       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x000048de                __udivmodsi4
  .text.libgcc.div
-                0x00004918       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
-                0x00004918                __divmodsi4
+                0x00004922       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
+                0x00004922                __divmodsi4
  .text.libgcc.div
-                0x00004946       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
-                0x00004946                __negsi2
- .text.libgcc   0x00004956        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                0x00004956                __tablejump2__
+                0x00004950       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
+                0x00004950                __negsi2
+ .text.libgcc   0x00004960        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                0x00004960                __tablejump2__
  .text.libgcc.mul
-                0x00004962       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
-                0x00004962                __umulhisi3
+                0x0000496c       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+                0x0000496c                __umulhisi3
  .text.libgcc.mul
-                0x00004980       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muluhisi3.o)
-                0x00004980                __muluhisi3
+                0x0000498a       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muluhisi3.o)
+                0x0000498a                __muluhisi3
  .text.avr-libc
-                0x00004996        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
-                0x00004996                strcpy
+                0x000049a0        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
+                0x000049a0                strcpy
  .text.avr-libc
-                0x000049a4       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(printf.o)
-                0x000049a4                printf
+                0x000049ae       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(printf.o)
+                0x000049ae                printf
  .text.avr-libc
-                0x000049d0       0x60 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(puts.o)
-                0x000049d0                puts
+                0x000049da       0x60 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(puts.o)
+                0x000049da                puts
  .text.avr-libc
-                0x00004a30      0x3c2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                0x00004a30                vfprintf
+                0x00004a3a      0x3c2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x00004a3a                vfprintf
  .text.avr-libc
-                0x00004df2       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x00004df2                strnlen_P
+                0x00004dfc       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x00004dfc                strnlen_P
  .text.avr-libc
-                0x00004e08       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x00004e08                strnlen
+                0x00004e12       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x00004e12                strnlen
  .text.avr-libc
-                0x00004e1e       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x00004e1e                fputc
+                0x00004e28       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x00004e28                fputc
  .text.avr-libc
-                0x00004e96       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x00004e96                __ultoa_invert
+                0x00004ea0       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x00004ea0                __ultoa_invert
  .text.avr-libc
-                0x00004f52        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328pb/avr5\libatmega328pb.a(eerd_word.o)
-                0x00004f52                eeprom_read_word
+                0x00004f5c        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328pb/avr5\libatmega328pb.a(eerd_word.o)
+                0x00004f5c                eeprom_read_word
  .text.avr-libc
-                0x00004f5e        0xa C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328pb/avr5\libatmega328pb.a(eewr_word.o)
-                0x00004f5e                eeprom_write_word
+                0x00004f68        0xa C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328pb/avr5\libatmega328pb.a(eewr_word.o)
+                0x00004f68                eeprom_write_word
  .text.avr-libc
-                0x00004f68       0x20 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328pb/avr5\libatmega328pb.a(eerd_block.o)
-                0x00004f68                eeprom_read_block
-                0x00004f6c                eeprom_read_blraw
+                0x00004f72       0x20 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328pb/avr5\libatmega328pb.a(eerd_block.o)
+                0x00004f72                eeprom_read_block
+                0x00004f76                eeprom_read_blraw
  .text.avr-libc
-                0x00004f88       0x1c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328pb/avr5\libatmega328pb.a(eewr_byte.o)
-                0x00004f88                eeprom_write_byte
-                0x00004f8a                eeprom_write_r18
+                0x00004f92       0x1c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328pb/avr5\libatmega328pb.a(eewr_byte.o)
+                0x00004f92                eeprom_write_byte
+                0x00004f94                eeprom_write_r18
  .text.libgcc.prologue
-                0x00004fa4       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
-                0x00004fa4                __prologue_saves__
+                0x00004fae       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
+                0x00004fae                __prologue_saves__
  .text.libgcc.prologue
-                0x00004fdc       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
-                0x00004fdc                __epilogue_restores__
-                0x00005012                . = ALIGN (0x2)
+                0x00004fe6       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
+                0x00004fe6                __epilogue_restores__
+                0x0000501c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00005012        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00005012                _exit
-                0x00005012                exit
+ .fini9         0x0000501c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x0000501c                _exit
+                0x0000501c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1187,11 +1187,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00005012        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000501c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00005016                _etext = .
+                0x00005020                _etext = .
 
-.data           0x00800100      0x446 load address 0x00005016
+.data           0x00800100      0x446 load address 0x00005020
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -1245,8 +1245,8 @@ END GROUP
  COMMON         0x00800712        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(iob.o)
                 0x00800712                __iob
                 0x00800718                PROVIDE (__bss_end, .)
-                0x00005016                __data_load_start = LOADADDR (.data)
-                0x0000545c                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00005020                __data_load_start = LOADADDR (.data)
+                0x00005466                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800718        0x0
                 [!provide]                PROVIDE (__noinit_start, .)

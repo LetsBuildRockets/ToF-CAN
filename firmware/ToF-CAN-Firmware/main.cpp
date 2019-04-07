@@ -305,6 +305,7 @@ int main(void)
 				uint16_t distance = measure.RangeMilliMeter;
 				if(distance < 8191 && distance > 30)
 				{
+					errorCode = ERROR_NONE;
 					//printf("Distance (mm): %u, range status:%d\r\n", distance, measure.RangeStatus);
 					// let's not flood the can bus...
 					//if(distance != lastDistance)
@@ -313,18 +314,19 @@ int main(void)
 						lastDistance = distance;
 					//}
 				
-					errorCode = ERROR_NONE;
 				}
 				else
 				{
 					// sometimes we get a bad reading of 8191 or 8192? also when out of range we sometimes read 0 - 25ish
-					errorCode = ERROR_OUT_OF_RANGE;
+					if(errorCode == ERROR_NONE)
+						errorCode = ERROR_OUT_OF_RANGE;
 				}
 			}
 			else
 			{
 				// OUT OF RANGE
-				errorCode = ERROR_OUT_OF_RANGE;
+				if(errorCode == ERROR_NONE)
+					errorCode = ERROR_OUT_OF_RANGE;
 			}
 		}
 		
